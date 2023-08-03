@@ -132,7 +132,7 @@ Write the following methods in the classes in the files provided. Feel free to b
   - Returns the `Magazine` instance with the most articles
   - Returns `None` if there are no articles.
   - _hint: will need a way to remember all magazine objects_
-  <!-- - Uncomment lines 151-161 in the player_test file -->
+  <!-- - Uncomment lines 204-216 in the magazine_test file -->
 
 ### Bonus: For any invalid inputs raise an `Exception`.
 - First, **comment out** the following lines
