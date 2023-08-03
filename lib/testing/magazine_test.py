@@ -203,6 +203,7 @@ class TestMagazine:
 
     # def test_top_publisher(self):
     #     """Returns the magazine with the most articles"""
+    #     Magazine.all = []
     #     author_1 = Author("Carry Bradshaw")
     #     magazine_1 = Magazine("Vogue", "Fashion")
     #     magazine_2 = Magazine("AD", "Architecture")
