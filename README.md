@@ -136,16 +136,16 @@ Write the following methods in the classes in the files provided. Feel free to b
 
 ### Bonus: For any invalid inputs raise an `Exception`.
 - First, **comment out** the following lines
-  <!-- - **game_test.py**
-    - lines 25-26
-  - **player_test.py**
-    - lines 25-26, 40-41, 44-45
-  - **result_test.py**
-    - lines 28-30 -->
+  <!-- - **article_test.py**
+    - lines 28-30
+  - **author_test.py**
+    - lines 31-32, 35-36
+  - **magazine_test.py**
+    - lines 31-32, 47-48, 51-52, 84-86, 99-101 -->
 - Then, **uncomment** the following lines in the test files
-  <!-- - **game_test.py**
-    - lines 29-30, 40-41
-  - **player_test.py**
-    - lines 29-30, 48-49, and 52-53
-  - **result_test.py**
-    - lines 33-34, 37-38, 49-50, and 53-54 -->
+  <!-- - **article_test.py**
+    - lines 33-34, 45-46, 49-50
+  - **author_test.py**
+    - lines 39-40, 53-54
+  - **magazine_test.py**
+    - lines 35-36, 55-56, 59-60, 89-90, 104-105

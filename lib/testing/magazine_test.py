@@ -46,11 +46,11 @@ class TestMagazine:
         # comment out the next two lines if using Exceptions
         magazine_1.name = "New Yorker Plus X"
         assert magazine_1.name == "Vogue"
-        
+
         # comment out the next two lines if using Exceptions
         magazine_2.name = "A"
         assert magazine_2.name == "AD"
-        
+
         # uncomment the next two lines if using Exceptions
         # with pytest.raises(Exception):
         #     magazine_1.name = "New Yorker Plus X"
@@ -58,7 +58,7 @@ class TestMagazine:
         # uncomment the next two lines if using Exceptions
         # with pytest.raises(Exception):
         #     magazine_2.name = "A"
-    
+
     def test_has_category(self):
         """Magazine is initialized with a category"""
         magazine_1 = Magazine("Vogue", "Fashion")
@@ -179,9 +179,12 @@ class TestMagazine:
         Article(author_1, magazine_2, "Carrara Marble is so 2020")
 
         assert magazine_1.article_titles() == ["How to wear a tutu with style"]
-        assert magazine_2.article_titles() == ["2023 Eccentric Design Trends", "Carrara Marble is so 2020"]
+        assert magazine_2.article_titles() == [
+            "2023 Eccentric Design Trends",
+            "Carrara Marble is so 2020",
+        ]
         assert magazine_3.article_titles() is None
-        
+
     def test_contributing_authors(self):
         """Returns author list who have written more than 2 articles for the magazine"""
         author_1 = Author("Carry Bradshaw")
