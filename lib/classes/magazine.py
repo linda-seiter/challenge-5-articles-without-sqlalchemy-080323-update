@@ -1,7 +1,10 @@
 class Magazine:
+    all = []
+    
     def __init__(self, name, category):
         self.name = name
         self.category = category
+        type(self).all.append(self)
 
     @property
     def name(self):
@@ -49,5 +52,11 @@ class Magazine:
         else:
             None
 
+    @classmethod
+    def top_publisher(cls):
+        if top_magazine := max(cls.all, key=lambda magazine: len(magazine.articles())):
+            return top_magazine
+        else:
+            return None
 
 from classes.article import Article
