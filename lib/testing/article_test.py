@@ -15,8 +15,8 @@ class TestArticle:
         article_1 = Article(author, magazine, "How to wear a tutu with style")
         article_2 = Article(author, magazine, "Dating life in NYC")
 
-        assert article_1.title == 2000
-        assert article_2.title == 5000
+        assert article_1.title == "How to wear a tutu with style"
+        assert article_2.title == "Dating life in NYC"
 
     def test_title_is_immutable_str(self):
         """title is an immutable string"""
@@ -39,7 +39,7 @@ class TestArticle:
         magazine = Magazine("Vogue", "Fashion")
         article_1 = Article(author, magazine, "How to wear a tutu with style")
 
-        assert 5 <= article_1.title <= 50
+        assert 5 <= len(article_1.title) <= 50
 
         # uncomment the next two lines if using Exceptions
         # with pytest.raises(Exception):
@@ -93,15 +93,15 @@ class TestArticle:
         assert isinstance(article_1.magazine, Magazine)
         assert isinstance(article_2.magazine, Magazine)
 
-    def test_get_all_magazines(self):
-        """Magazine class has all attribute"""
-        Magazine.all = []
+    def test_get_all_articles(self):
+        """Article class has all attribute"""
+        Article.all = []
         author = Author("Carry Bradshaw")
         magazine_1 = Magazine("Vogue", "Fashion")
         magazine_2 = Magazine("AD", "Architecture & Design")
-        Article(author, magazine_1, "How to wear a tutu with style")
-        Article(author, magazine_2, "Dating life in NYC")
+        article_1 = Article(author, magazine_1, "How to wear a tutu with style")
+        article_2 = Article(author, magazine_2, "Dating life in NYC")
 
-        assert len(Magazine.all) == 2
-        assert magazine_1 in Magazine.all
-        assert magazine_2 in Magazine.all
+        assert len(Article.all) == 2
+        assert article_1 in Article.all
+        assert article_2 in Article.all
