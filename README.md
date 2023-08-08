@@ -69,7 +69,7 @@ Write the following methods in the classes in the files provided. Feel free to b
 #### Article
 
 - `Article __init__(self, author, magazine, title)`
-  - Article is initialized with an `Author` instance`, a `Magazine` instance, and a title.
+  - Article is initialized with an `Author` instance, a `Magazine` instance, and a title.
 - `Article property title`
   - Returns the article's title
   - Titles must be of type `str`
@@ -84,9 +84,11 @@ Write the following methods in the classes in the files provided. Feel free to b
 - `Article property author`
   - Returns the author object for that article
   - Must be of type `Author`
+  - Authors **can be changed** after the article object is initialized
 - `Article property magazine`
   - Returns the magazine object for that article
   - Must be of type `Magazine`
+  - Magazines **can be changed** after the article object is initialized
 
 #### Author
 
@@ -104,15 +106,15 @@ Write the following methods in the classes in the files provided. Feel free to b
   - Must be of type `Article`
 - `Magazine contributors()`
   - Returns a **unique** list of authors who have written for this magazine
+  - Must be of type `Author`
 
 ### Aggregate and Association Methods
 
 #### Author
 
 - `Author add_article(magazine, title)`
-  - Receives a Magazine instance as argument
-  - Receives a title as argument
-  - Creates and returns a new Article instance and associates it with that author and the magazine provided.
+  - Receives a `Magazine` instance, and a title as arguments
+  - Creates and returns a new `Article` instance and associates it with that author, the magazine provided
 - `Author topic_areas()`
   - Returns a **unique** list of strings with the categories of the magazines the author has contributed to
   - Returns `None` if the author has no articles
@@ -124,6 +126,7 @@ Write the following methods in the classes in the files provided. Feel free to b
   - Returns `None` if the magazine has no articles
 - `Magazine contributing_authors()`
   - Returns a list of authors who have written more than 2 articles for the magazine
+  - Authors must be of type `Author`
   - Returns `None` if the magazine has no authors with more than 2 publications
 
 ### Bonus: Aggregate and Association Method
@@ -131,8 +134,8 @@ Write the following methods in the classes in the files provided. Feel free to b
 - `Magazine classmethod top_publisher()`
   - Returns the `Magazine` instance with the most articles
   - Returns `None` if there are no articles.
+  - Uncomment lines 204-217 in the magazine_test file
   - _hint: will need a way to remember all magazine objects_
-  <!-- - Uncomment lines 204-216 in the magazine_test file -->
 
 ### Bonus: For any invalid inputs raise an `Exception`.
 - First, **comment out** the following lines
