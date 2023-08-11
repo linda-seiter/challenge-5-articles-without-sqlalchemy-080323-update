@@ -24,9 +24,10 @@ class TestArticle:
         magazine = Magazine("Vogue", "Fashion")
         article_1 = Article(author, magazine, "How to wear a tutu with style")
 
-        # comment out the next three lines if using Exceptions
+        # comment out the next two lines if using Exceptions
         article_1.title = 500
         assert article_1.title == "How to wear a tutu with style"
+        
         assert isinstance(article_1.title, str)
 
         # uncomment the next two lines if using Exceptions
@@ -60,8 +61,8 @@ class TestArticle:
         assert article_1.author == author_1
         assert article_2.author == author_2
 
-    def test_author_of_type_author(self):
-        """author is of type Author"""
+    def test_author_of_type_author_and_mutable(self):
+        """author is of type Author and mutable"""
         author_1 = Author("Carry Bradshaw")
         author_2 = Author("Nathaniel Hawthorne")
         magazine = Magazine("Vogue", "Fashion")
@@ -70,6 +71,10 @@ class TestArticle:
 
         assert isinstance(article_1.author, Author)
         assert isinstance(article_2.author, Author)
+        
+        article_1.author = author_2
+        assert isinstance(article_1.author, Author)
+        assert article_1.author.name == "Nathaniel Hawthorne"
 
     def test_has_a_magazine(self):
         """article has a magazine"""
@@ -82,8 +87,8 @@ class TestArticle:
         assert article_1.magazine == magazine_1
         assert article_2.magazine == magazine_2
 
-    def test_magazine_of_type_magazine(self):
-        """magazine is of type Magazine"""
+    def test_magazine_of_type_magazine_and_mutable(self):
+        """magazine is of type Magazine and mutable"""
         author = Author("Carry Bradshaw")
         magazine_1 = Magazine("Vogue", "Fashion")
         magazine_2 = Magazine("AD", "Architecture & Design")
@@ -92,6 +97,10 @@ class TestArticle:
 
         assert isinstance(article_1.magazine, Magazine)
         assert isinstance(article_2.magazine, Magazine)
+        
+        article_1.magazine = magazine_2
+        assert isinstance(article_1.magazine, Magazine)
+        assert article_1.magazine.name == "AD"
 
     def test_get_all_articles(self):
         """Article class has all attribute"""
@@ -105,3 +114,4 @@ class TestArticle:
         assert len(Article.all) == 2
         assert article_1 in Article.all
         assert article_2 in Article.all
+

@@ -140,15 +140,15 @@ Write the following methods in the classes in the files provided. Feel free to b
 ### Bonus: For any invalid inputs raise an `Exception`.
 - First, **comment out** the following lines
   - **article_test.py**
-    - lines 28-30
+    - lines 28-29
   - **author_test.py**
-    - lines 31-32, 35-36
+    - lines 31-32, and 35-36
   - **magazine_test.py**
-    - lines 31-32, 47-48, 51-52, 84-86, 99-101
+    - lines 31-32, 47-48, 51-52, 84-85, and 100-102
 - Then, **uncomment** the following lines in the test files
   - **article_test.py**
-    - lines 33-34, 45-46, 49-50
+    - lines 34-35, 46-47, and 50-51
   - **author_test.py**
-    - lines 39-40, 53-54
+    - lines 39-40, and 53-54
   - **magazine_test.py**
-    - lines 35-36, 55-56, 59-60, 89-90, 104-105
+    - lines 35-36, 55-56, 59-60, 90-91, and 105-106

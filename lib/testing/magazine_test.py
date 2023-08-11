@@ -80,9 +80,10 @@ class TestMagazine:
 
         assert isinstance(magazine_1.category, str)
 
-        # comment out the next three lines if using Exceptions
+        # comment out the next two lines if using Exceptions
         magazine_2.category = 2
         assert magazine_2.category == "Architecture"
+        
         assert isinstance(magazine_2.category, str)
 
         # uncomment the next two lines if using Exceptions
@@ -169,7 +170,7 @@ class TestMagazine:
         assert len(magazine_1.contributors()) == 2
 
     def test_article_titles(self):
-        """Returns list of titles strings of all articles written for that magazine"""
+        """returns list of titles strings of all articles written for that magazine"""
         author_1 = Author("Carry Bradshaw")
         magazine_1 = Magazine("Vogue", "Fashion")
         magazine_2 = Magazine("AD", "Architecture")
@@ -186,7 +187,7 @@ class TestMagazine:
         assert magazine_3.article_titles() is None
 
     def test_contributing_authors(self):
-        """Returns author list who have written more than 2 articles for the magazine"""
+        """returns author list who have written more than 2 articles for the magazine"""
         author_1 = Author("Carry Bradshaw")
         author_2 = Author("Nathaniel Hawthorne")
         magazine_1 = Magazine("Vogue", "Fashion")
@@ -199,10 +200,11 @@ class TestMagazine:
 
         assert author_1 in magazine_1.contributing_authors()
         assert author_2 not in magazine_1.contributing_authors()
+        assert all(isinstance(author, Author) for author in magazine_1.contributing_authors())
         assert magazine_2.contributing_authors() is None
 
     # def test_top_publisher(self):
-    #     """Returns the magazine with the most articles"""
+    #     """returns the magazine with the most articles"""
     #     Magazine.all = []
     #     author_1 = Author("Carry Bradshaw")
     #     magazine_1 = Magazine("Vogue", "Fashion")
@@ -215,3 +217,4 @@ class TestMagazine:
 
     #     assert Magazine.top_publisher() == magazine_1
     #     assert isinstance(Magazine.top_publisher(), Magazine)
+
