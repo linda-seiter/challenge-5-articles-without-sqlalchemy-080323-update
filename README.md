@@ -134,7 +134,7 @@ Write the following methods in the classes in the files provided. Feel free to b
 - `Magazine classmethod top_publisher()`
   - Returns the `Magazine` instance with the most articles
   - Returns `None` if there are no articles.
-  - Uncomment lines 204-217 in the magazine_test file
+  - Uncomment lines 206-219 in the magazine_test file
   - _hint: will need a way to remember all magazine objects_
 
 ### Bonus: For any invalid inputs raise an `Exception`.
