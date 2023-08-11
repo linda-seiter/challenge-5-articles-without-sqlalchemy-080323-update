@@ -154,6 +154,7 @@ class TestAuthor:
     def test_topic_areas_are_unique(self):
         """topic areas are unique"""
         author_1 = Author("Carry Bradshaw")
+        author_2 = Author("Giorgio Faletti")
         magazine_1 = Magazine("Vogue", "Fashion")
         magazine_2 = Magazine("AD", "Architecture")
         author_1.add_article(magazine_1, "How to wear a tutu with style")
@@ -162,3 +163,6 @@ class TestAuthor:
 
         assert len(set(author_1.topic_areas())) == len(author_1.topic_areas())
         assert len(author_1.topic_areas()) == 2
+        assert "Fashion" in author_1.topic_areas()
+        assert "Architecture" in author_1.topic_areas()
+        assert author_2.topic_areas() is None
