@@ -1,11 +1,11 @@
 class Author:
     def __init__(self, name):
         self.name = name
-    
+
     @property
     def name(self):
         return self._name
-    
+
     @name.setter
     def name(self, name):
         if isinstance(name, str) and name and not hasattr(self, "name"):
@@ -24,7 +24,11 @@ class Author:
         return Article(self, magazine, title)
 
     def topic_areas(self):
-        return list({magazine.category for magazine in self.magazines()})
+        return (
+            list({magazine.category for magazine in self.magazines()})
+            if self.magazines()
+            else None
+        )
 
 
 from classes.article import Article
