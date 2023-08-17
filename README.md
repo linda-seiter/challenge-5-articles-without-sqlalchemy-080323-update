@@ -20,13 +20,13 @@ For our purposes, an `Author` has many `Article`s, a `Magazine` has many `Articl
 
 ## Instructions
 
-To get started, run `pipenv install` while inside of this directory.
+To get started, run `pipenv install` while inside of this directory. Then run `pipenv shell` to jump into the shell.
 
 Build out all of the methods listed in the deliverables. The methods are listed in a suggested order, but you can feel free to tackle the ones you think are easiest. Be careful: some of the later methods rely on earlier ones.
 
-**Remember!** This code challenge does not have tests. You cannot run `pytest`. You'll need to create your own sample instances so that you can try out your code on your own. Make sure your relationships and methods work in the console before submitting.
+**Remember!** This code challenge has tests to help you check your work. You can run `pytest` to make sure your code is functional before submitting.
 
-We've provided you with a tool that you can use to test your code. To use it, run `python tools/debug.py` from the command line. This will start a `ipdb` session with your classes defined. You can test out the methods that you write here. You can add code to the `tools/debug.py` file to define variables and create sample instances of your objects.
+We've provided you with a tool that you can use to test your code. To use it, run `python lib/debug.py` from the command line. This will start a `ipdb` session with your classes defined. You can test out the methods that you write here. You can add code to the `lib/debug.py` file to define variables and create sample instances of your objects.
 
 Writing error-free code is more important than completing all of the deliverables listed - prioritize writing methods that work over writing more methods that don't work. You should test your code in the console as you write.
 
@@ -38,66 +38,117 @@ Similarly, messy code that works is better than clean code that doesn't. First, 
 
 Write the following methods in the classes in the files provided. Feel free to build out any helper methods if needed.
 
-### Initializers, Readers, and Writers
+### Initializers and Properties
 
 #### Author
 
 - `Author __init__(self, name)`
-  - An author is initialized with a name, as a string.
-  - A name **cannot** be changed after it is initialized.
-- `Author name()`
-  - Returns the name of the author
+  - Author is initialized with a name
+- `Author property name`
+  - Returns the author's name
+  - Names must be of type `str`
+  - Names must be longer than 0 characters
+  - Should **not be able** to change after the author is instantiated.
+  - _hint: hasattr()_
 
 #### Magazine
 
 - `Magazine __init__(self, name, category)`
-  - A magazine is initialized with a name as a string and a category as a string
-  - The name and category of the magazine **can be** changed after being initialized.
-- `Magazine name()`
-  - Returns the name of this magazine
-- `Magazine category()`
-  - Returns the category of this magazine
+  - A magazine is initialized with a name and a category
+- `Magazine property name`
+  - Returns the magazine's name
+  - Names must be of type `str`
+  - Names must be between 2 and 16 characters, inclusive
+  - Should **be able** to change after the magazine is instantiated.
+- `Magazine property category`
+  - Returns the magazine's category
+  - Categories must be of type `str`
+  - Categories must be longer than 0 characters
+  - Should **be able** to change after the magazine is instantiated.
 
 #### Article
 
 - `Article __init__(self, author, magazine, title)`
-  - An article is initialized with an author as an Author object, a magazine as a Magazine object, and title as a string.
-- `Article title()`
-  - Returns the title for that given article
+  - Article is initialized with an `Author` instance, a `Magazine` instance, and a title.
+- `Article property title`
+  - Returns the article's title
+  - Titles must be of type `str`
+  - Titles must be between 5 and 50 characters, inclusive
+  - Should **not be able** to change after the article is instantiated.
+  - _hint: hasattr()_
 
-### Object Relationship Methods
+### Object Relationship Methods and Properties
 
 #### Article
 
-- `Article author()`
-  - Returns the author for that given article
-- `Article magazine()`
-  - Returns the magazine for that given article
+- `Article property author`
+  - Returns the author object for that article
+  - Must be of type `Author`
+  - Authors **can be changed** after the article object is initialized
+- `Article property magazine`
+  - Returns the magazine object for that article
+  - Must be of type `Magazine`
+  - Magazines **can be changed** after the article object is initialized
 
 #### Author
 
 - `Author articles()`
-  - Returns an list of Article instances the author has written
+  - Returns a list of all the articles the author has written
+  - Must be of type `Article`
 - `Author magazines()`
-  - Returns a **unique** list of Magazine instances for which the author has contributed to
+  - Returns a **unique** list of magazines for which the author has contributed to
+  - Must be of type `Magazine`
 
 #### Magazine
 
+- `Magazine articles()`
+  - Returns a list of all the articles the magazine has published
+  - Must be of type `Article`
 - `Magazine contributors()`
-  - Returns an list of Author instances who have written for this magazine
+  - Returns a **unique** list of authors who have written for this magazine
+  - Must be of type `Author`
 
-### Associations and Aggregate Methods
+### Aggregate and Association Methods
 
 #### Author
 
 - `Author add_article(magazine, title)`
-  - Given a magazine (as Magazine instance) and a title (as a string), creates a new Article instance and associates it with that author and that magazine.
+  - Receives a `Magazine` instance, and a title as arguments
+  - Creates and returns a new `Article` instance and associates it with that author, the magazine provided
 - `Author topic_areas()`
   - Returns a **unique** list of strings with the categories of the magazines the author has contributed to
+  - Returns `None` if the author has no articles
 
 #### Magazine
 
 - `Magazine article_titles()`
-  - Returns an list strings of the titles of all articles written for that magazine
+  - Returns a list of the titles strings of all articles written for that magazine
+  - Returns `None` if the magazine has no articles
 - `Magazine contributing_authors()`
-  - Returns an list of authors who have written more than 2 articles for the magazine
+  - Returns a list of authors who have written more than 2 articles for the magazine
+  - Authors must be of type `Author`
+  - Returns `None` if the magazine has no authors with more than 2 publications
+
+### Bonus: Aggregate and Association Method
+
+- `Magazine classmethod top_publisher()`
+  - Returns the `Magazine` instance with the most articles
+  - Returns `None` if there are no articles.
+  - Uncomment lines 206-219 in the magazine_test file
+  - _hint: will need a way to remember all magazine objects_
+
+### Bonus: For any invalid inputs raise an `Exception`.
+- First, **comment out** the following lines
+  - **article_test.py**
+    - lines 28-29
+  - **author_test.py**
+    - lines 31-32, and 35-36
+  - **magazine_test.py**
+    - lines 31-32, 47-48, 51-52, 84-85, and 100-102
+- Then, **uncomment** the following lines in the test files
+  - **article_test.py**
+    - lines 34-35, 46-47, and 50-51
+  - **author_test.py**
+    - lines 39-40, and 53-54
+  - **magazine_test.py**
+    - lines 35-36, 55-56, 59-60, 90-91, and 105-106
