@@ -1,12 +1,12 @@
 import pytest
 
-from classes.article import Article
-from classes.magazine import Magazine
-from classes.author import Author
+from classes.many_to_many import Article
+from classes.many_to_many import Magazine
+from classes.many_to_many import Author
 
 
 class TestMagazine:
-    """Magazine in magazine.py"""
+    """Magazine in many_to_many.py"""
 
     def test_has_name(self):
         """Magazine is initialized with a name"""
