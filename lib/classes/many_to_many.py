@@ -137,7 +137,8 @@ class Magazine:
 
     @classmethod
     def top_publisher(cls):
-        if top_magazine := max(cls.all, key=lambda magazine: len(magazine.articles())):
-            return top_magazine
-        else:
-            return None
+        return (
+            max(cls.all, key=lambda magazine: len(magazine.articles()))
+            if Article.all
+            else None
+        )
